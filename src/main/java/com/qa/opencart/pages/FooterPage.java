@@ -27,6 +27,7 @@ public class FooterPage {
 		List<WebElement> footerList= elementUtil.waitforElementswithFluentWait(footer, 10,2);
 		List<String> footerInfo = new ArrayList<String>();
 		List<String> footHeaders = new ArrayList<String>();
+		System.out.println(footerList.size());
 		for(int i=0;i<footerList.size();i++)
 		{
 			footerInfo.add(footerList.get(i).getText());
