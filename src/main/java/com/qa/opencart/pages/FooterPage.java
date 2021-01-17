@@ -13,8 +13,9 @@ public class FooterPage {
 
     private  WebDriver driver;
     private ElementUtil elementUtil;
-	private By footer = By.xpath("//div[@class='col-sm-3']/ul[@class='list-unstyled']/li");
-	
+	private By footer = By.xpath("//div[@class='container']//div[@class='col-sm-3']/ul[@class='list-unstyled']/li/a");
+			
+	private By footerHeader = By.xpath("//div[@id='content']/h1 | //div[@id='content']/h2");
 	public FooterPage(WebDriver driver)
 	{
 		this.driver=driver;
@@ -23,14 +24,19 @@ public class FooterPage {
 	
 	public List<String> getFooterLinks()
 	{
-		List<WebElement> footerList= elementUtil.getElements(footer);
+		List<WebElement> footerList= elementUtil.waitforElementswithFluentWait(footer, 10,2);
 		List<String> footerInfo = new ArrayList<String>();
+		List<String> footHeaders = new ArrayList<String>();
 		for(int i=0;i<footerList.size();i++)
 		{
-			//System.out.println(footerList.get(i).getText());
 			footerInfo.add(footerList.get(i).getText());
+			footerList.get(i).click();
+			footerList= elementUtil.waitforElementswithFluentWait(footer, 10,2);
+			String text= elementUtil.doGetText(footerHeader);
+			footHeaders.add(text);
+			
 		}
 			
-		return footerInfo;
+		return footHeaders;
 	}
 }

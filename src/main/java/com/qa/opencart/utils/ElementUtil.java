@@ -194,6 +194,13 @@ public class ElementUtil{
 		return wait.until(ExpectedConditions.presenceOfElementLocated(locator));
 	}
 	
-	
+    public List<WebElement> waitforElementswithFluentWait(By locator, int timeOut, int pollingTime){
+    	Wait<WebDriver> wait = new FluentWait<WebDriver>(driver)
+				.withTimeout(Duration.ofSeconds(timeOut))
+				.pollingEvery(Duration.ofSeconds(pollingTime))
+				.ignoring(NoSuchElementException.class);
+
+	return  wait.until(ExpectedConditions.presenceOfAllElementsLocatedBy(locator));
+    }
 	
 }

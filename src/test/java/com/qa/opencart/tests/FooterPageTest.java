@@ -20,28 +20,12 @@ public class FooterPageTest extends BaseTest {
 	}
 	
 	
-//	public Object[][] footerData(){
-//		return new Object[][] {{"About Us"},
-//				 {"Delivery Information"},
-//				 {"Privacy Policy"},
-//				 {"Terms & Conditions"},
-//				 {"Contact Us"},
-//				 {"Returns"},
-//				 {"Site Map"},
-//				 {"Brands"},
-//				 {"Gift Certificates"},
-//				 {"Affiliate"}, 
-//				 {"Specials"}, 
-//				 {"My Account"},
-//				 {"Order History"}, 
-//				 {"Wish List"}, 
-//				 {"Newsletter"}};
-//	}
+
 	@Test
      public void checkFooterLinks()
      {
     	List<String> footList= footerPage.getFooterLinks();
-    	//System.out.println(footList);
-    	Assert.assertEquals(footList,Constants.getFooterLinkText());
+    	System.out.println(footList);
+    	Assert.assertEquals(footList,Constants.getFooterLinkHeadText());
      }
 }

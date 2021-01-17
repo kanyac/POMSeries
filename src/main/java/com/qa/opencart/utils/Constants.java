@@ -46,4 +46,29 @@ public class Constants {
 	
 	
 	}
+	public static List<String> getFooterLinkHeadText()
+	{
+		
+		List<String> footerLinkText = new ArrayList<>();
+		footerLinkText.add("About Us");
+		footerLinkText.add("Delivery Information");
+		footerLinkText.add("Privacy Policy");
+		footerLinkText.add("Terms & Conditions");
+		footerLinkText.add("Contact Us");
+		footerLinkText.add("Product Returns");
+		footerLinkText.add("Site Map");
+		footerLinkText.add("Find Your Favorite Brand");
+		footerLinkText.add("Purchase a Gift Certificate");
+		footerLinkText.add("My Account");
+		footerLinkText.add("Special Offers");
+		footerLinkText.add("My Account");
+		footerLinkText.add("Order History");
+		footerLinkText.add("My Wish List");
+		footerLinkText.add("Newsletter Subscription");
+		return footerLinkText;
+		
+	
+	
+	}
+
 }
