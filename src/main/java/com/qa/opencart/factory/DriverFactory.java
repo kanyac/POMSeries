@@ -7,6 +7,7 @@ import java.io.IOException;
 import java.util.Properties;
 
 import org.apache.commons.io.FileUtils;
+import org.apache.log4j.Logger;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
@@ -24,6 +25,8 @@ import io.github.bonigarcia.wdm.WebDriverManager;
  */
 public class DriverFactory {
 
+	
+	private static final Logger LOGGER = Logger.getLogger(String.valueOf(DriverFactory.class));
 	WebDriver driver;
 	Properties prop;
 	OptionsManager optionsManager ;
@@ -39,7 +42,7 @@ public class DriverFactory {
 	public WebDriver init_driver(Properties prop) {
 		String browserName = prop.getProperty("browser");
 		System.out.println("Browser name is : " + browserName);
-		
+		LOGGER.info("Browser name is :" +browserName);
 		highlight = prop.getProperty("highlight").trim();//if not initialised null pointer exception
 		optionsManager = new OptionsManager(prop);
 		if(browserName.equals("chrome")) {

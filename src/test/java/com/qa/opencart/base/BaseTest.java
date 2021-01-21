@@ -13,6 +13,7 @@ import com.qa.opencart.pages.FooterPage;
 import com.qa.opencart.pages.LoginPage;
 import com.qa.opencart.pages.MonitorsPage;
 import com.qa.opencart.pages.PhonesPage;
+import com.qa.opencart.pages.ProductInfoPage;
 import com.qa.opencart.pages.RegisterPage;
 
 public class BaseTest  {
@@ -28,6 +29,7 @@ public class BaseTest  {
 	public MonitorsPage monitorsPage;
 	public AllComponentsPage allComponentsPage;
 	public FooterPage footerPage;
+	public ProductInfoPage productInfoPage;
 	@BeforeTest()
 	public void setUp()
 	{
@@ -42,6 +44,6 @@ public class BaseTest  {
      @AfterTest()
      public void tearDown()
      {
-    	// driver.quit();
+    	 driver.quit();
      }
 }

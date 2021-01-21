@@ -22,6 +22,10 @@ public class AccountsPage {
 	private By componentLink = By.xpath("//ul[@class='nav navbar-nav']/li[position()=3]/a"); 
 	private By componentList = By.xpath("//ul[@class='nav navbar-nav']/li[position()=3]/a/..//li/a");
 	//private By compAll = By.xpath("//ul[@class='nav navbar-nav']/li[position()=3]//div[@class='dropdown-menu']/a");
+	private  By searchText= By.name("search");
+	private By searchButton = By.xpath("//div[@id='search']//button");
+	private By resultItem = By.cssSelector("div.product-thumb h4 a");
+	private By searchItemResult = By.cssSelector("div div.product-thumb");
 	
 	public AccountsPage(WebDriver driver) {
 	
@@ -85,5 +89,32 @@ public class AccountsPage {
 		return new FooterPage(driver);
 	}
 	
-
+    public boolean doSearch(String productName)
+    {
+    	elementUtil.doSendKeys(searchText, productName);
+         elementUtil.doClick(searchButton);
+         if(elementUtil.getElements(searchItemResult).size()>0)
+         {
+        	 return true;
+         }
+         return false;
+        
+    }
+    
+    
+    public ProductInfoPage selectProductFromResult(String productName)
+    {
+    	List<WebElement> resultList =     	elementUtil.getElements(resultItem);
+    	System.out.println(resultList.size());	
+    	for (WebElement e : resultList)
+    		{
+    			if(e.getText().equalsIgnoreCase(productName)) {
+    				e.click();
+    				break;
+    			}
+    		}
+    	return new ProductInfoPage(driver);
+    }
 }
+
+

@@ -1,10 +1,12 @@
 package com.qa.opencart.tests;
 
+import org.apache.log4j.Logger;
 import org.testng.Assert;
 import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 
 import com.qa.opencart.base.BaseTest;
+import com.qa.opencart.factory.DriverFactory;
 import com.qa.opencart.testlisteners.ExtentReportListener;
 import com.qa.opencart.utils.Constants;
 
@@ -21,7 +23,7 @@ import io.qameta.allure.Story;
 @Story("User story - 400 : design login page with different test case")
 public class LoginPageTest extends BaseTest {
 	
-	
+	private static final Logger LOGGER = Logger.getLogger(String.valueOf(LoginPageTest.class));
 
 	@Test
 	@Description(" Login Title test")
@@ -30,7 +32,8 @@ public class LoginPageTest extends BaseTest {
 	{
 		String title = loginPage.getLoginPageTitle();
 		System.out.println("Login Page Tile is : "+title);
-		Assert.assertEquals(title,Constants.LOGIN_PAGE_TITLE);
+		LOGGER.info("Login Page Tile is : "+title);
+		Assert.assertEquals(title,Constants.LOGIN_PAGE_TITLE,"Page title not found");
 	}
 	@Description("check Forgot password linkt")
 	@Severity(SeverityLevel.CRITICAL)
